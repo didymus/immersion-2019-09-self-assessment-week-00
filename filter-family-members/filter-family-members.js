@@ -51,4 +51,13 @@ console.log(`filter-family-members.js is loaded!`);
 // returns ['Beth Jr. Johnson', 'Joshie Wyattson'];
 
 const filterFamilyMembers = (familyTree, truthTest) => {
+    return _.reduce(familyTree, function(accumulator){
+if(truthTest){
+    accumulator = truthTest;
+    return accumulator;
+    //console.log(accumulator);
+} else {
+    filterFamilyMembers(familyTree, truthTest);
+}
+    }, '')
 };
